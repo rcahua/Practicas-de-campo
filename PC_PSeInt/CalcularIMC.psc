@@ -1,23 +1,33 @@
 Algoritmo CalcularIMC
-	Escribir "Ingrese su peso en kg:"
+	Escribir "Ingrese su peso Kg:"
 	Leer peso
-	Escribir "Ingrese su altura en metros (ejemplo: 1.75):"
+	Escribir "Ingrese su talla en m:"
 	Leer altura
 	
-	imc = peso / (altura * altura)
-	Escribir "Su IMC es: ", imc
-	
-	Si imc < 18.5 Entonces
-		Escribir "Diagn髎tico: Bajo peso"
-	SiNo
-		Si imc < 25 Entonces
-			Escribir "Diagn髎tico: Peso normal"
-		SiNo
-			Si imc < 30 Entonces
-				Escribir "Diagn髎tico: Sobrepeso"
+	// Tu validaci贸n de seguridad
+	Si peso <= 400 y peso >= 5 Entonces
+		Si altura <= 2.5 y altura >= 0.6 Entonces
+			imc <- peso / (altura * altura)
+			Escribir "Su IMC es: ", imc
+			
+			// Rangos seg煤n el ejercicio
+			Si imc < 18.5 Entonces
+				Escribir "Diagn贸stico: Bajo peso"
 			SiNo
-				Escribir "Diagn髎tico: Obesidad"
+				Si imc < 25 Entonces
+					Escribir "Diagn贸stico: Peso normal"
+				SiNo
+					Si imc < 30 Entonces
+						Escribir "Diagn贸stico: Sobrepeso"
+					SiNo
+						Escribir "Diagn贸stico: Obesidad"
+					FinSi
+				FinSi
 			FinSi
+		SiNo
+			Escribir "Altura invalida"
 		FinSi
+	SiNo
+		Escribir "Peso Invalido"
 	FinSi
 FinAlgoritmo
